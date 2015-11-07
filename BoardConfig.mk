@@ -5,16 +5,13 @@ ENABLE_LIBRECOVERY := true
 PRODUCT_PACKAGES += \
     librecovery
 
-# for Gecko to support virtual storage
-ifeq ($(GECKO_BOARD_STORAGE_TYPE),emulated)
+# for Gecko to support internal storage
+ifeq ($(GECKO_BOARD_SEPARATE_STORAGE_PARTITON),true)
+RECOVERY_EXTERNAL_STORAGE := /storage/sdcard1
+else
 RECOVERY_EXTERNAL_STORAGE := /data/media/0
 PRODUCT_COPY_FILES += \
-    vendor/cm/volume-emulated.cfg:system/etc/volume.cfg
-endif
-
-# for Gecko to support partitioned storage
-ifeq ($(GECKO_BOARD_STORAGE_TYPE),partition)
-RECOVERY_EXTERNAL_STORAGE := /storage/sdcard1
+    vendor/cm/volume.cfg:system/etc/volume.cfg
 endif
 
 # for Gecko to support bluetooth stack
