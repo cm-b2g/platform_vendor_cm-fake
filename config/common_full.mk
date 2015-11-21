@@ -1,3 +1,6 @@
+# Inherit common b2g stuff
+$(call inherit-product, vendor/cm/config/common_b2g.mk)
+
 # Inherit common CM stuff
 $(call inherit-product, vendor/cm/config/common.mk)
 
@@ -5,4 +8,5 @@ $(call inherit-product, vendor/cm/config/common.mk)
 PRODUCT_PACKAGES += \
     vim \
     zip \
-    unrar
+    unrar \
+    curl
