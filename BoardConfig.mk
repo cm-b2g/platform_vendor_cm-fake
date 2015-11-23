@@ -18,3 +18,6 @@ PRODUCT_COPY_FILES += \
 
 # Disable SELinux (b2g currently does not support SELinux)
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
+# Automatically enable b2g specific kernel features
+TARGET_KERNEL_B2G_CONFIG := vendor/cm/b2g_defconfig
