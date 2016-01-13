@@ -12,6 +12,9 @@ PRODUCT_COPY_FILES += \
     vendor/cm/volume.cfg:system/etc/volume.cfg
 endif
 
+# For Gecko to support QCOM bluetooth extensions
+BOARD_BLUETOOTH_BDROID_USE_CAF_EXTENSIONS := true
+
 # for Gecko to support physical buttons
 PRODUCT_COPY_FILES += \
     vendor/cm/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
