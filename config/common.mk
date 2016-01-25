@@ -3,24 +3,19 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 # Extra tools in CM
 PRODUCT_PACKAGES += \
     libsepol \
-    e2fsck \
     mke2fs \
     tune2fs \
-    bash \
     nano \
     htop \
-    powertop \
-    lsof \
-    mkfs.f2fs \
-    fsck.f2fs \
-    fibmap.f2fs \
-    ntfsfix \
-    ntfs-3g \
+    mkfs.ntfs \
+    fsck.ntfs \
+    mount.ntfs \
     gdbserver \
     micro_bench \
     oprofiled \
     sqlite3 \
-    strace
+    strace \
+    pigz
 
 WITH_EXFAT ?= true
 ifeq ($(WITH_EXFAT),true)
@@ -63,8 +58,11 @@ PRODUCT_PACKAGES += \
     su
 endif
 
-PRODUCT_VERSION_MAJOR = 12
-PRODUCT_VERSION_MINOR = 1
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.root_access=0
+
+PRODUCT_VERSION_MAJOR = 13
+PRODUCT_VERSION_MINOR = 0
 
 ifeq ($(PRODUCT_VERSION_MINOR),0)
     CM_VERSION := $(PRODUCT_VERSION_MAJOR)

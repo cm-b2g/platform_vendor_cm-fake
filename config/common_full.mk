@@ -6,7 +6,14 @@ $(call inherit-product, vendor/cm/config/common.mk)
 
 # Extra tools in CM
 PRODUCT_PACKAGES += \
-    vim \
-    zip \
+    7z \
+    lib7z \
+    bash \
+    bzip2 \
+    curl \
+    powertop \
     unrar \
-    curl
+    unzip \
+    vim \
+    wget \
+    zip
